@@ -3,58 +3,115 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sources — Music & Studying</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Sources used for the capstone project on music and concentration."
+    />
+    <title>Sources | Music & Studying</title>
+    <style>
+      :root {
+        --bg: #f6f8fb; --surface: #ffffff; --text: #132035; --muted: #5d6a7c;
+        --primary: #0e7490; --primary-strong: #155e75; --border: #d9e2ec;
+        --shadow: 0 12px 28px rgba(19, 32, 53, 0.08);
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0; padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top right, #dff6ff 0%, var(--bg) 40%);
+      }
+      .container { width: min(1000px, 92%); margin: 0 auto; }
+      .skip-link { position: absolute; left: -9999px; top: auto; }
+      .skip-link:focus {
+        left: 12px; top: 12px; background: #fff; color: #000;
+        padding: 8px 10px; border-radius: 8px; border: 2px solid #000; z-index: 1000;
+      }
+      .header {
+        position: sticky; top: 0; z-index: 10;
+        background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(6px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav {
+        min-height: 68px; display: flex; align-items: center; justify-content: space-between;
+        gap: 16px; flex-wrap: wrap; padding: 10px 0;
+      }
+      .brand { font-weight: 700; color: var(--primary-strong); text-decoration: none; }
+      nav { display: flex; gap: 12px; flex-wrap: wrap; }
+      nav a { text-decoration: none; color: var(--text); padding: 8px 10px; border-radius: 8px; }
+      nav a:hover { background: #e9f7fb; }
+      nav a.active { background: var(--primary); color: #fff; }
+      .section { padding: 34px 0 30px; }
+      .muted { color: var(--muted); }
+      .card {
+        background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+        padding: 18px; box-shadow: var(--shadow);
+      }
+      ul { margin-bottom: 0; }
+      li + li { margin-top: 10px; }
+      a { color: var(--primary-strong); }
+      .footer { border-top: 1px solid var(--border); background: #fff; margin-top: 20px; }
+      .footer-row {
+        min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      }
+      @media (max-width: 760px) {
+        .footer-row { flex-direction: column; justify-content: center; padding: 10px 0; }
+      }
+    </style>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header class="header">
       <div class="container nav">
         <a class="brand" href="index.html">Capstone: Music & Concentration</a>
-        <nav>
+        <nav aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="method.html">Method</a>
           <a href="results.html">Results</a>
           <a href="conclusion.html">Conclusion</a>
-          <a class="active" href="sources.html">Sources</a>
+          <a class="active" href="sources.html" aria-current="page">Sources</a>
         </nav>
       </div>
     </header>
 
-    <main class="section">
+    <main id="main-content" class="section">
       <div class="container">
-        <h2>Sources</h2>
+        <h1>Sources</h1>
+        <p class="muted">References used to support this project.</p>
 
-        <div class="card">
-          <p class="muted">
-            Replace these placeholders with your real sources (APA or MLA).
-          </p>
-
-          <ol>
+        <section class="card">
+          <ul>
             <li>
-              Author, A. A. (Year). Title of article. Website/Journal. URL
+              Example Journal Article: Author, A. A. (Year). Title of study.
+              <em>Journal Name</em>, 10(2), 100-110.
             </li>
             <li>
-              Author, A. A. (Year). Title of study. Journal Name, volume(issue),
-              pages. DOI/URL
+              Example Book: Author, B. B. (Year). <em>Book Title</em>. Publisher.
             </li>
-            <li>Organization Name. (Year). Title of page/report. URL</li>
-          </ol>
-
-          <p class="muted">
-            Tip: use at least 3–5 solid sources (a mix of research + credible
-            education sites).
+            <li>
+              Example Website:
+              <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+                https://example.com
+              </a>
+            </li>
+          </ul>
+          <p class="muted" style="margin-top: 12px">
+            Replace placeholders with your real APA/MLA citations.
           </p>
-        </div>
+        </section>
       </div>
     </main>
 
     <footer class="footer">
       <div class="container footer-row">
-        <span>© <span id="year"></span> Capstone Website</span>
+        <span>&copy; <span id="year"></span> Capstone Website</span>
         <span class="muted">Sources</span>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
