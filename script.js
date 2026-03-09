@@ -1,52 +1,60 @@
-// Footer year
-document.querySelectorAll("#year").forEach(el => {
-  el.textContent = new Date().getFullYear();
-});
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sources — Music & Studying</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <a class="brand" href="index.html">Capstone: Music & Concentration</a>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="method.html">Method</a>
+          <a href="results.html">Results</a>
+          <a href="conclusion.html">Conclusion</a>
+          <a class="active" href="sources.html">Sources</a>
+        </nav>
+      </div>
+    </header>
 
-// Results tool (runs only if elements exist)
-const musicType = document.getElementById("musicType");
-const volume = document.getElementById("volume");
-const task = document.getElementById("task");
-const scoreOut = document.getElementById("scoreOut");
-const noteOut = document.getElementById("noteOut");
-const volOut = document.getElementById("volOut");
+    <main class="section">
+      <div class="container">
+        <h2>Sources</h2>
 
-function calcScore() {
-  if (!musicType || !volume || !task || !scoreOut || !noteOut) return;
+        <div class="card">
+          <p class="muted">
+            Replace these placeholders with your real sources (APA or MLA).
+          </p>
 
-  const type = musicType.value;       // none / instrumental / lyrical
-  const vol = Number(volume.value);   // 0-100
-  const t = task.value;               // reading / writing / math / memorization
+          <ol>
+            <li>
+              Author, A. A. (Year). Title of article. Website/Journal. URL
+            </li>
+            <li>
+              Author, A. A. (Year). Title of study. Journal Name, volume(issue),
+              pages. DOI/URL
+            </li>
+            <li>Organization Name. (Year). Title of page/report. URL</li>
+          </ol>
 
-  if (volOut) volOut.textContent = vol;
+          <p class="muted">
+            Tip: use at least 3–5 solid sources (a mix of research + credible
+            education sites).
+          </p>
+        </div>
+      </div>
+    </main>
 
-  // Simple interactive model (NOT a scientific claim)
-  let score = 70;
+    <footer class="footer">
+      <div class="container footer-row">
+        <span>© <span id="year"></span> Capstone Website</span>
+        <span class="muted">Sources</span>
+      </div>
+    </footer>
 
-  if (type === "none") score += 5;
-  if (type === "instrumental") score += 8;
-  if (type === "lyrical") score -= 6;
-
-  const languageHeavy = (t === "reading" || t === "writing");
-  if (languageHeavy && type === "lyrical") score -= 10;
-  if (t === "math" && type === "instrumental") score += 4;
-  if (t === "memorization" && type === "none") score += 3;
-
-  if (vol > 65) score -= Math.round((vol - 65) * 0.6);
-  if (vol < 25 && type !== "none") score += 2;
-
-  score = Math.max(0, Math.min(100, score));
-  scoreOut.textContent = score;
-
-  let note = "Balanced choice.";
-  if (score >= 85) note = "Likely helpful for focus (based on the settings).";
-  if (score <= 60) note = "Higher chance of distraction — consider changing type/volume.";
-  if (languageHeavy && type === "lyrical") note = "Lyrics + reading/writing can compete for attention.";
-  if (type === "none") note = "Silence can be best for deep focus and complex tasks.";
-  if (type === "instrumental" && vol <= 55) note = "Instrumental at moderate volume is a common focus combo.";
-
-  noteOut.textContent = note;
-}
-
-[musicType, volume, task].forEach(el => el && el.addEventListener("input", calcScore));
-calcScore();
+    <script src="script.js"></script>
+  </body>
+</html>
