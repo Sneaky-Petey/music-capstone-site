@@ -3,119 +3,145 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Results — Music & Studying</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Results section for the capstone project on music and concentration."
+    />
+    <title>Results | Music & Studying</title>
+    <style>
+      :root {
+        --bg: #f6f8fb; --surface: #ffffff; --text: #132035; --muted: #5d6a7c;
+        --primary: #0e7490; --primary-strong: #155e75; --border: #d9e2ec;
+        --shadow: 0 12px 28px rgba(19, 32, 53, 0.08);
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0; padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top right, #dff6ff 0%, var(--bg) 40%);
+      }
+      .container { width: min(1000px, 92%); margin: 0 auto; }
+      .skip-link { position: absolute; left: -9999px; top: auto; }
+      .skip-link:focus {
+        left: 12px; top: 12px; background: #fff; color: #000;
+        padding: 8px 10px; border-radius: 8px; border: 2px solid #000; z-index: 1000;
+      }
+      .header {
+        position: sticky; top: 0; z-index: 10;
+        background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(6px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav {
+        min-height: 68px; display: flex; align-items: center; justify-content: space-between;
+        gap: 16px; flex-wrap: wrap; padding: 10px 0;
+      }
+      .brand { font-weight: 700; color: var(--primary-strong); text-decoration: none; }
+      nav { display: flex; gap: 12px; flex-wrap: wrap; }
+      nav a { text-decoration: none; color: var(--text); padding: 8px 10px; border-radius: 8px; }
+      nav a:hover { background: #e9f7fb; }
+      nav a.active { background: var(--primary); color: #fff; }
+      .section { padding: 34px 0 30px; }
+      .muted { color: var(--muted); }
+      .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .card {
+        background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+        padding: 18px; box-shadow: var(--shadow);
+      }
+      .table-wrap { overflow-x: auto; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--border); }
+      th { color: var(--primary-strong); }
+      .footer { border-top: 1px solid var(--border); background: #fff; margin-top: 20px; }
+      .footer-row {
+        min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      }
+      @media (max-width: 760px) {
+        .grid2 { grid-template-columns: 1fr; }
+        .footer-row { flex-direction: column; justify-content: center; padding: 10px 0; }
+      }
+    </style>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header class="header">
       <div class="container nav">
         <a class="brand" href="index.html">Capstone: Music & Concentration</a>
-        <nav>
+        <nav aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="method.html">Method</a>
-          <a class="active" href="results.html">Results</a>
+          <a class="active" href="results.html" aria-current="page">Results</a>
           <a href="conclusion.html">Conclusion</a>
           <a href="sources.html">Sources</a>
         </nav>
       </div>
     </header>
 
-    <main class="section">
+    <main id="main-content" class="section">
       <div class="container">
-        <h2>Results</h2>
+        <h1>Results</h1>
+        <p class="muted">Summary of observed performance and focus patterns.</p>
 
-        <div class="card">
-          <p class="muted">
-            Replace the sample summary with your real findings (averages,
-            tables, quotes, etc.).
+        <section class="card table-wrap" aria-label="Results table">
+          <h2>Sample Summary</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Condition</th>
+                <th>Average Focus</th>
+                <th>Average Task Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Silence</td>
+                <td>7.8 / 10</td>
+                <td>84%</td>
+              </tr>
+              <tr>
+                <td>Instrumental</td>
+                <td>8.3 / 10</td>
+                <td>87%</td>
+              </tr>
+              <tr>
+                <td>Lyrical</td>
+                <td>6.9 / 10</td>
+                <td>79%</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="muted" style="margin-top: 10px">
+            Values are example summaries; replace with your final measured data.
           </p>
-          <h3>Summary (sample)</h3>
-          <ul>
-            <li>Instrumental music often had the highest focus ratings.</li>
-            <li>
-              Lyrical music tended to be more distracting for reading/writing
-              tasks.
-            </li>
-            <li>Silence sometimes worked best for the most difficult tasks.</li>
-          </ul>
-        </div>
+        </section>
 
-        <div class="section" style="padding-left: 0; padding-right: 0">
-          <div class="card">
-            <h3>Interactive Tool</h3>
-            <p class="small-note">
-              This is an interactive model for your website (not a scientific
-              calculator). You can still add your real data below it.
+        <section class="grid2" style="margin-top: 16px" aria-label="Result interpretation">
+          <article class="card">
+            <h2>Main Pattern</h2>
+            <p>
+              Instrumental music was generally linked to stronger focus and slightly better task performance.
             </p>
-
-            <div class="tool">
-              <div>
-                <label for="musicType">Music type</label>
-                <select id="musicType">
-                  <option value="none">Silence</option>
-                  <option value="instrumental" selected>Instrumental</option>
-                  <option value="lyrical">Lyrical</option>
-                </select>
-
-                <label for="task">Task type</label>
-                <select id="task">
-                  <option value="reading">Reading</option>
-                  <option value="writing">Writing</option>
-                  <option value="math" selected>Math</option>
-                  <option value="memorization">Memorization</option>
-                </select>
-
-                <label for="volume"
-                  >Volume (0–100):
-                  <span class="badge"><span id="volOut">45</span></span></label
-                >
-                <input id="volume" type="range" min="0" max="100" value="45" />
-                <p class="small-note">
-                  Tip: very loud music usually hurts focus.
-                </p>
-              </div>
-
-              <div>
-                <p><span class="badge">Predicted Focus Score</span></p>
-                <p style="font-size: 46px; margin: 8px 0 10px">
-                  <strong id="scoreOut">—</strong>/100
-                </p>
-                <div
-                  class="card"
-                  style="
-                    background: rgba(255, 255, 255, 0.04);
-                    box-shadow: none;
-                  "
-                >
-                  <strong>Note:</strong>
-                  <p id="noteOut" class="muted" style="margin: 8px 0 0">—</p>
-                </div>
-                <p class="small-note" style="margin-top: 10px">
-                  Add your real results here (table/chart screenshot, averages,
-                  etc.).
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Real Data (paste yours here)</h3>
-          <p class="muted">
-            Example format: “Average accuracy was highest under instrumental
-            music (88%) and lowest under lyrical music (78%).”
-          </p>
-        </div>
+          </article>
+          <article class="card">
+            <h2>Important Note</h2>
+            <p>
+              Individual differences were clear: some participants performed best in silence.
+            </p>
+          </article>
+        </section>
       </div>
     </main>
 
     <footer class="footer">
       <div class="container footer-row">
-        <span>© <span id="year"></span> Capstone Website</span>
+        <span>&copy; <span id="year"></span> Capstone Website</span>
         <span class="muted">Results</span>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
