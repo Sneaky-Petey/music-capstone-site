@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -15,7 +15,9 @@
         <nav aria-label="Main navigation">
           <a href="./index.html">Home</a>
           <a href="./method.html">Method</a>
-          <a class="active" href="./results.html" aria-current="page">Results</a>
+          <a class="active" href="./results.html" aria-current="page"
+            >Results</a
+          >
           <a href="./conclusion.html">Conclusion</a>
           <a href="./sources.html">Sources</a>
         </nav>
@@ -26,9 +28,6 @@
       <div class="container">
         <div class="card page-head">
           <h1>Results</h1>
-          <p class="muted">
-            Summary of key findings, plus your original interactive focus slider tool.
-          </p>
         </div>
 
         <section class="card">
@@ -42,9 +41,6 @@
 
         <section class="card" style="margin-top: 14px">
           <h2>Interactive Tool</h2>
-          <p class="small-note">
-            This is an interactive model for your website. Keep this and place real data below it.
-          </p>
 
           <div class="tool">
             <div>
@@ -68,7 +64,6 @@
                 <span class="badge"><span id="volOut">45</span></span></label
               >
               <input id="volume" type="range" min="0" max="100" value="45" />
-              <p class="small-note">Tip: very loud music usually hurts focus.</p>
             </div>
 
             <div>
@@ -76,7 +71,10 @@
               <p style="font-size: 46px; margin: 8px 0 10px">
                 <strong id="scoreOut">-</strong>/100
               </p>
-              <div class="card" style="background: rgba(255, 255, 255, 0.04); box-shadow: none">
+              <div
+                class="card"
+                style="background: rgba(255, 255, 255, 0.04); box-shadow: none"
+              >
                 <strong>Note:</strong>
                 <p id="noteOut" class="muted" style="margin: 8px 0 0">-</p>
               </div>
@@ -86,9 +84,13 @@
 
         <section class="card" style="margin-top: 14px">
           <h2>Real Data</h2>
-          <p class="muted">
-            Replace this with your final measurements, averages, chart, or summary sentence.
-          </p>
+
+          <div class="chart-card">
+            <canvas
+              id="focusChart"
+              aria-label="Average focus score by sound condition"
+            ></canvas>
+          </div>
         </section>
 
         <div class="page-nav" aria-label="Page navigation">
@@ -105,7 +107,7 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
-
