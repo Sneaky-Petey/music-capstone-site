@@ -1,0 +1,113 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Results - Music & Studying</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="header">
+      <div class="container nav">
+        <a class="brand" href="./index.html">Capstone: Music & Concentration</a>
+        <nav aria-label="Main navigation">
+          <a href="./index.html">Home</a>
+          <a href="./method.html">Method</a>
+          <a class="active" href="./results.html" aria-current="page"
+            >Results</a
+          >
+          <a href="./conclusion.html">Conclusion</a>
+          <a href="./sources.html">Sources</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="section">
+      <div class="container">
+        <div class="card page-head">
+          <h1>Results</h1>
+        </div>
+
+        <section class="card">
+          <h2>Summary</h2>
+          <ul>
+            <li>Instrumental music often had the highest focus ratings.</li>
+            <li>Lyrical music tended to distract reading and writing tasks.</li>
+            <li>Silence sometimes worked best for very difficult tasks.</li>
+          </ul>
+        </section>
+
+        <section class="card" style="margin-top: 14px">
+          <h2>Interactive Tool</h2>
+
+          <div class="tool">
+            <div>
+              <label for="musicType">Music type</label>
+              <select id="musicType">
+                <option value="none">Silence</option>
+                <option value="instrumental" selected>Instrumental</option>
+                <option value="lyrical">Lyrical</option>
+              </select>
+
+              <label for="task">Task type</label>
+              <select id="task">
+                <option value="reading">Reading</option>
+                <option value="writing">Writing</option>
+                <option value="math" selected>Math</option>
+                <option value="memorization">Memorization</option>
+              </select>
+
+              <label for="volume"
+                >Volume (0-100):
+                <span class="badge"><span id="volOut">45</span></span></label
+              >
+              <input id="volume" type="range" min="0" max="100" value="45" />
+            </div>
+
+            <div>
+              <p><span class="badge">Predicted Focus Score</span></p>
+              <p style="font-size: 46px; margin: 8px 0 10px">
+                <strong id="scoreOut">-</strong>/100
+              </p>
+              <div
+                class="card"
+                style="background: rgba(255, 255, 255, 0.04); box-shadow: none"
+              >
+                <strong>Note:</strong>
+                <p id="noteOut" class="muted" style="margin: 8px 0 0">-</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top: 14px">
+          <h2>Real Data</h2>
+
+          <div class="chart-card">
+            <canvas
+              id="focusChart"
+              aria-label="Average focus score by sound condition"
+            ></canvas>
+          </div>
+        </section>
+
+        <div class="page-nav" aria-label="Page navigation">
+          <a href="./method.html">Back: Method</a>
+          <a href="./conclusion.html">Next: Conclusion</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-row">
+        <span>&copy; <span id="year"></span> Capstone Website</span>
+        <span class="muted">Results</span>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
