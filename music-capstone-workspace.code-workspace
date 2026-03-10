@@ -1,0 +1,21 @@
+{
+  "folders": [
+	{
+		"name": "Code for learning html and css",
+		"path": "../Code for learning html and css"
+	},
+	{
+		"name": "Pacific Shore Interactive",
+		"path": "../Pacific Shore Interactive"
+	},
+	{
+		"path": "../Bot of boats"
+	},
+	{
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Pacific Shore Interactive"
+  }
+}
