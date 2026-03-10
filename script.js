@@ -50,3 +50,89 @@ function calcScore() {
 
 [musicType, volume, task].forEach((el) => el && el.addEventListener("input", calcScore));
 calcScore();
+
+// Real data chart (runs only on Results page with Chart.js loaded)
+const focusChartEl = document.getElementById("focusChart");
+if (focusChartEl && typeof Chart !== "undefined") {
+  let hasRenderedFocusChart = false;
+
+  function renderFocusChart() {
+    if (hasRenderedFocusChart) return;
+    hasRenderedFocusChart = true;
+
+    const rootStyles = getComputedStyle(document.documentElement);
+    const textColor = rootStyles.getPropertyValue("--text").trim() || "#e8eefc";
+    const mutedColor = rootStyles.getPropertyValue("--muted").trim() || "#a8b3cf";
+    const gridColor = "rgba(255, 255, 255, 0.14)";
+
+    new Chart(focusChartEl, {
+      type: "bar",
+      data: {
+        labels: ["Silence", "Instrumental Music", "Lyrical Music"],
+        datasets: [
+          {
+            label: "Average Focus Score",
+            data: [78, 86, 64],
+            borderRadius: 8,
+            backgroundColor: [
+              "rgba(122, 162, 255, 0.75)",
+              "rgba(102, 240, 194, 0.75)",
+              "rgba(255, 122, 162, 0.75)",
+            ],
+            borderColor: [
+              "rgba(122, 162, 255, 1)",
+              "rgba(102, 240, 194, 1)",
+              "rgba(255, 122, 162, 1)",
+            ],
+            borderWidth: 1.5,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 3600,
+          easing: "easeOutQuart",
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: textColor,
+            },
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            ticks: { color: mutedColor },
+            grid: { color: gridColor },
+          },
+          x: {
+            ticks: { color: mutedColor },
+            grid: { color: "rgba(255, 255, 255, 0.05)" },
+          },
+        },
+      },
+    });
+  }
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            renderFocusChart();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(focusChartEl);
+  } else {
+    renderFocusChart();
+  }
+}
+
